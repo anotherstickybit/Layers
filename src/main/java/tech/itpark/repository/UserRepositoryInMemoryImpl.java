@@ -34,8 +34,9 @@ public class UserRepositoryInMemoryImpl implements UserRepository {
 
   @Override
   public boolean removeById(Long id) {
-    // FIXME: мы не хотели так-то удалять юзера
-    return idToEntity.remove(id) != null;
+    UserEntity entity = idToEntity.get(id);
+    entity.setRemoved(true);
+    return true;
   }
 
   @Override
