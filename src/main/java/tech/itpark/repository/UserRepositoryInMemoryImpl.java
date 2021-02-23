@@ -36,6 +36,7 @@ public class UserRepositoryInMemoryImpl implements UserRepository {
   public boolean removeById(Long id) {
     UserEntity entity = idToEntity.get(id);
     entity.setRemoved(true);
+    loginToEntity.get(entity.getLogin()).setRemoved(true);
     return true;
   }
 
