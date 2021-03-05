@@ -59,7 +59,7 @@ public class UserRepositoryJDBCImpl implements UserRepository {
         ) {
             stmt.setLong(1, aLong);
             try (final ResultSet rs = stmt.executeQuery()) {
-                while (rs.next()) {
+                if (rs.next()) {
                     return Optional.ofNullable(mapper.map(rs));
                 }
             }
