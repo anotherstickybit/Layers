@@ -35,7 +35,7 @@ public class UserRepositoryInMemoryImpl implements UserRepository {
   @Override
   public boolean removeById(Long id) {
     idToEntity.get(id).setRemoved(true);
-    return true;
+    return idToEntity.get(id).isRemoved();
   }
 
   @Override
