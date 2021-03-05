@@ -60,7 +60,7 @@ public class UserRepositoryJDBCImpl implements UserRepository {
             stmt.setLong(1, aLong);
             try (final ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
-                    return Optional.of(mapper.map(rs));
+                    return Optional.ofNullable(mapper.map(rs));
                 }
             }
         } catch (SQLException e) {
@@ -134,7 +134,7 @@ public class UserRepositoryJDBCImpl implements UserRepository {
             stmt.setString(1, login);
             try (final ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
-                    return Optional.of(mapper.map(rs));
+                    return Optional.ofNullable(mapper.map(rs));
                 }
             }
         } catch (SQLException e) {
