@@ -1,6 +1,7 @@
 package tech.itpark.repository;
 
 import tech.itpark.entity.UserEntity;
+import tech.itpark.exception.UserNotExistsException;
 
 import java.util.*;
 
@@ -39,6 +40,7 @@ public class UserRepositoryInMemoryImpl implements UserRepository {
 
   @Override
   public boolean removeById(Long id) {
+    if (!idToEntity.containsKey(id)) throw new UserNotExistsException();
     idToEntity.get(id).setRemoved(true);
     return idToEntity.get(id).isRemoved();
   }

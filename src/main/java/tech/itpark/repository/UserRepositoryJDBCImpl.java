@@ -64,11 +64,11 @@ public class UserRepositoryJDBCImpl implements UserRepository {
                 if (rs.next()) {
                     return Optional.ofNullable(mapper.map(rs));
                 }
+                return Optional.empty();
             }
         } catch (SQLException e) {
             throw new DataAccessException(e);
         }
-        return Optional.of(null);
     }
 
 
