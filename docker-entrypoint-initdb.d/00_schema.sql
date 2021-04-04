@@ -1,4 +1,4 @@
-create table users (
+ create table users (
     id bigserial primary key,
     login text not null unique,
     password text not null,

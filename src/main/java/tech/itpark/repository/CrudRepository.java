@@ -10,5 +10,6 @@ public interface CrudRepository<T, ID> {
   Optional<T> findById(ID id); // Optional вместо T, потому что последний может быть null
   // в старых системах всегда будет T = null (если не найдено)
   T save(T entity);
+  T reset(T entity);
   boolean removeById(ID id); // иногда void
 }

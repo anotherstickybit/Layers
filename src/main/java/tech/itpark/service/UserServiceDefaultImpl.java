@@ -8,7 +8,7 @@ import tech.itpark.exception.SecretInvalidException;
 import tech.itpark.model.*;
 import tech.itpark.repository.UserRepository;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDate;
 import java.util.Set;
 
 public class UserServiceDefaultImpl implements UserService {
@@ -37,7 +37,7 @@ public class UserServiceDefaultImpl implements UserService {
         // FIXME: extract hardcoded roles
         Set.of("ROLE_USER"),
         false,
-        OffsetDateTime.now().toEpochSecond() // long -> кол-во секунд с 1970 года 1 янв 00:00 по UTC
+        LocalDate.now() // long -> кол-во секунд с 1970 года 1 янв 00:00 по UTC
     ));
 
     return new UserModel(
@@ -66,7 +66,6 @@ public class UserServiceDefaultImpl implements UserService {
       throw new PasswordInvalidException();
     }
 
-    // FIXME: DRY (Don't repeat yourself)
     return new UserModel(
         entity.getId(),
         entity.getLogin(),
@@ -88,7 +87,7 @@ public class UserServiceDefaultImpl implements UserService {
       throw new SecretInvalidException(model.getLogin());
     }
     entity.setPassword(model.getNewPassword());
-    repository.save(entity);
+    repository.reset(entity);
     return new UserModel(
             entity.getId(),
             entity.getLogin(),

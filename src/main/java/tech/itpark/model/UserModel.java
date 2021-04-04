@@ -1,5 +1,6 @@
 package tech.itpark.model;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 public class UserModel {
@@ -8,9 +9,9 @@ public class UserModel {
   private final String name;
   private final Set<String> roles;
   private final boolean removed;
-  private final long created;
+  private final LocalDate created;
 
-  public UserModel(long id, String login, String name, Set<String> roles, boolean removed, long created) {
+  public UserModel(long id, String login, String name, Set<String> roles, boolean removed, LocalDate created) {
     this.id = id;
     this.login = login;
     this.name = name;
@@ -39,7 +40,7 @@ public class UserModel {
     return removed;
   }
 
-  public long getCreated() {
+  public LocalDate getCreated() {
     return created;
   }
 }

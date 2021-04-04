@@ -1,5 +1,6 @@
 package tech.itpark.entity;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 public class UserEntity {
@@ -10,12 +11,12 @@ public class UserEntity {
   private String secret;
   private Set<String> roles;
   private boolean removed;
-  private long created;
+  private LocalDate created;
 
   public UserEntity() {
   }
 
-  public UserEntity(long id, String login, String password, String name, String secret, Set<String> roles, boolean removed, long created) {
+  public UserEntity(long id, String login, String password, String name, String secret, Set<String> roles, boolean removed, LocalDate created) {
     this.id = id;
     this.login = login;
     this.password = password;
@@ -82,11 +83,11 @@ public class UserEntity {
     this.removed = removed;
   }
 
-  public long getCreated() {
+  public LocalDate getCreated() {
     return created;
   }
 
-  public void setCreated(long created) {
+  public void setCreated(LocalDate created) {
     this.created = created;
   }
 }

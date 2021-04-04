@@ -33,6 +33,11 @@ public class UserRepositoryInMemoryImpl implements UserRepository {
   }
 
   @Override
+  public UserEntity reset(UserEntity entity) {
+    return null;
+  }
+
+  @Override
   public boolean removeById(Long id) {
     idToEntity.get(id).setRemoved(true);
     return idToEntity.get(id).isRemoved();
