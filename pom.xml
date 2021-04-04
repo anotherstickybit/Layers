@@ -51,4 +51,11 @@
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/anotherstickybit/Layers</url>
+        </repository>
+    </distributionManagement>
+
 </project>
